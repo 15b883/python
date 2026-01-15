@@ -1,7 +1,6 @@
-FROM python:3.10-slim
+# 1. 声明一个 ARG 变量，用于接收 GitHub Actions 传进来的 PYTHON_VERSION
+# 注意：ARG 必须写在 FROM 之前，才能在 FROM 中使用
+ARG PYTHON_VERSION=3.13
 
-ENV TIMEZONE=Asia/Shanghai
-RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime && echo $TIMEZONE > /etc/timezone
-
-RUN pip3 install -i https://pypi.douban.com/simple/ -U pip
-RUN pip3 config set global.index-url https://pypi.douban.com/simple/
+# 2. 使用该变量来指定基础镜像的版本
+FROM python:${PYTHON_VERSION}-slim
