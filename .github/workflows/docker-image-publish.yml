@@ -37,5 +37,5 @@ jobs:
           push: true
           # 自动根据版本号生成 Tag
           tags: |
-            ghcr.io/${{ github.repository }}:python${{ matrix.python-version }}
+            ghcr.io/${{ github.repository }}:${{ matrix.python-version }}
             ghcr.io/${{ github.repository }}:latest-${{ matrix.python-version }}
